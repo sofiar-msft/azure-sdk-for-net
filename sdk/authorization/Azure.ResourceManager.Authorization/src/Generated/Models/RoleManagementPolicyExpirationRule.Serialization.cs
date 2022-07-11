@@ -5,7 +5,6 @@
 
 #nullable disable
 
-using System;
 using System.Text.Json;
 using Azure.Core;
 
@@ -44,8 +43,8 @@ namespace Azure.ResourceManager.Authorization.Models
         internal static RoleManagementPolicyExpirationRule DeserializeRoleManagementPolicyExpirationRule(JsonElement element)
         {
             Optional<bool> isExpirationRequired = default;
-            Optional<TimeSpan> maximumDuration = default;
-            Optional<string> id = default;
+            Optional<string> maximumDuration = default;
+            Optional<ResourceIdentifier> id = default;
             RoleManagementPolicyRuleType ruleType = default;
             Optional<RoleManagementPolicyRuleTarget> target = default;
             foreach (var property in element.EnumerateObject())
@@ -61,6 +60,11 @@ namespace Azure.ResourceManager.Authorization.Models
                     continue;
                 }
                 if (property.NameEquals("maximumDuration"))
+                {
+                    maximumDuration = property.Value.GetString();
+                    continue;
+                }
+                if (property.NameEquals("id"))
                 {
                     if (property.Value.ValueKind == JsonValueKind.Null)
                     {
@@ -91,7 +95,7 @@ namespace Azure.ResourceManager.Authorization.Models
                     continue;
                 }
             }
-            return new RoleManagementPolicyExpirationRule(id.Value, ruleType, target.Value, Optional.ToNullable(isExpirationRequired), Optional.ToNullable(maximumDuration));
+            return new RoleManagementPolicyExpirationRule(id.Value, ruleType, target.Value, Optional.ToNullable(isExpirationRequired), maximumDuration.Value);
         }
     }
 }

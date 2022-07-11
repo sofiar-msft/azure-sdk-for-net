@@ -1066,7 +1066,7 @@ namespace Azure.ResourceManager.Authorization.Models
     {
         public RoleManagementUserInfo() { }
         public string Description { get { throw null; } set { } }
-        public string Id { get { throw null; } set { } }
+        public Azure.Core.ResourceIdentifier Id { get { throw null; } set { } }
         public bool? IsBackup { get { throw null; } set { } }
         public Azure.ResourceManager.Authorization.Models.RoleManagementUserType? UserType { get { throw null; } set { } }
     }
