@@ -4,9 +4,11 @@
 
 ### Features Added
 
+- Added Update methods in resource classes.
+
 ### Breaking Changes
 
-### Bugs Fixed
+- Polished name and type for some models, properties, parameters.
 
 ### Other Changes
 
