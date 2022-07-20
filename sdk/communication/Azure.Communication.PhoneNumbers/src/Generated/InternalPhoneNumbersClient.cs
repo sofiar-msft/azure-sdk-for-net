@@ -42,7 +42,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Gets a phone number search result by search id. </summary>
         /// <param name="searchId"> The search Id. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Gets a phone number search result by search id. </remarks>
         public virtual async Task<Response<PhoneNumberSearchResult>> GetSearchResultAsync(string searchId, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.GetSearchResult");
@@ -61,7 +60,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Gets a phone number search result by search id. </summary>
         /// <param name="searchId"> The search Id. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Gets a phone number search result by search id. </remarks>
         public virtual Response<PhoneNumberSearchResult> GetSearchResult(string searchId, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.GetSearchResult");
@@ -80,7 +78,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Gets an operation by its id. </summary>
         /// <param name="operationId"> The id of the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Gets an operation by its id. </remarks>
         public virtual async Task<Response<PhoneNumberOperation>> GetOperationAsync(string operationId, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.GetOperation");
@@ -99,7 +96,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Gets an operation by its id. </summary>
         /// <param name="operationId"> The id of the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Gets an operation by its id. </remarks>
         public virtual Response<PhoneNumberOperation> GetOperation(string operationId, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.GetOperation");
@@ -118,7 +114,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Cancels an operation by its id. </summary>
         /// <param name="operationId"> The id of the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Cancels an operation by its id. </remarks>
         public virtual async Task<Response> CancelOperationAsync(string operationId, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.CancelOperation");
@@ -137,7 +132,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Cancels an operation by its id. </summary>
         /// <param name="operationId"> The id of the operation. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Cancels an operation by its id. </remarks>
         public virtual Response CancelOperation(string operationId, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.CancelOperation");
@@ -648,7 +642,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <param name="body"> The phone number search request. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="countryCode"/> or <paramref name="body"/> is null. </exception>
-        /// <remarks> Search for available phone numbers to purchase. </remarks>
         public virtual async Task<SearchAvailablePhoneNumbersOperation> StartSearchAvailablePhoneNumbersAsync(string countryCode, PhoneNumberSearchRequest body, CancellationToken cancellationToken = default)
         {
             if (countryCode == null)
@@ -679,7 +672,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <param name="body"> The phone number search request. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="countryCode"/> or <paramref name="body"/> is null. </exception>
-        /// <remarks> Search for available phone numbers to purchase. </remarks>
         public virtual SearchAvailablePhoneNumbersOperation StartSearchAvailablePhoneNumbers(string countryCode, PhoneNumberSearchRequest body, CancellationToken cancellationToken = default)
         {
             if (countryCode == null)
@@ -708,7 +700,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Purchases phone numbers. </summary>
         /// <param name="searchId"> The search id. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Purchases phone numbers. </remarks>
         public virtual async Task<InternalPurchasePhoneNumbersOperation> StartPurchasePhoneNumbersAsync(string searchId = null, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.StartPurchasePhoneNumbers");
@@ -728,7 +719,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <summary> Purchases phone numbers. </summary>
         /// <param name="searchId"> The search id. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        /// <remarks> Purchases phone numbers. </remarks>
         public virtual InternalPurchasePhoneNumbersOperation StartPurchasePhoneNumbers(string searchId = null, CancellationToken cancellationToken = default)
         {
             using var scope = _clientDiagnostics.CreateScope("InternalPhoneNumbersClient.StartPurchasePhoneNumbers");
@@ -751,7 +741,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <param name="sms"> Capability value for SMS. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="phoneNumber"/> is null. </exception>
-        /// <remarks> Updates the capabilities of a phone number. </remarks>
         public virtual async Task<UpdatePhoneNumberCapabilitiesOperation> StartUpdateCapabilitiesAsync(string phoneNumber, PhoneNumberCapabilityType? calling = null, PhoneNumberCapabilityType? sms = null, CancellationToken cancellationToken = default)
         {
             if (phoneNumber == null)
@@ -779,7 +768,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <param name="sms"> Capability value for SMS. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="phoneNumber"/> is null. </exception>
-        /// <remarks> Updates the capabilities of a phone number. </remarks>
         public virtual UpdatePhoneNumberCapabilitiesOperation StartUpdateCapabilities(string phoneNumber, PhoneNumberCapabilityType? calling = null, PhoneNumberCapabilityType? sms = null, CancellationToken cancellationToken = default)
         {
             if (phoneNumber == null)
@@ -805,7 +793,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <param name="phoneNumber"> Phone number to be released, e.g. +11234567890. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="phoneNumber"/> is null. </exception>
-        /// <remarks> Releases a purchased phone number. </remarks>
         public virtual async Task<InternalReleasePhoneNumberOperation> StartReleasePhoneNumberAsync(string phoneNumber, CancellationToken cancellationToken = default)
         {
             if (phoneNumber == null)
@@ -831,7 +818,6 @@ namespace Azure.Communication.PhoneNumbers
         /// <param name="phoneNumber"> Phone number to be released, e.g. +11234567890. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="phoneNumber"/> is null. </exception>
-        /// <remarks> Releases a purchased phone number. </remarks>
         public virtual InternalReleasePhoneNumberOperation StartReleasePhoneNumber(string phoneNumber, CancellationToken cancellationToken = default)
         {
             if (phoneNumber == null)
