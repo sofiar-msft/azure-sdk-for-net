@@ -2819,6 +2819,110 @@ namespace Azure.ResourceManager.ApiManagement.Models
         public ApiManagementSubscriptionPatch() { }
         public bool? AllowTracing { get { throw null; } set { } }
         public string DisplayName { get { throw null; } set { } }
+        public System.DateTimeOffset? ExpiresOn { get { throw null; } set { } }
+        public string OwnerId { get { throw null; } set { } }
+        public string PrimaryKey { get { throw null; } set { } }
+        public string Scope { get { throw null; } set { } }
+        public string SecondaryKey { get { throw null; } set { } }
+        public Azure.ResourceManager.ApiManagement.Models.SubscriptionState? State { get { throw null; } set { } }
+        public string StateComment { get { throw null; } set { } }
+    }
+    public partial class ApiManagementTagCreateOrUpdateContent
+    {
+        public ApiManagementTagCreateOrUpdateContent() { }
+        public string DisplayName { get { throw null; } set { } }
+    }
+    public partial class ApiManagementUserCreateOrUpdateContent
+    {
+        public ApiManagementUserCreateOrUpdateContent() { }
+        public Azure.ResourceManager.ApiManagement.Models.AppType? AppType { get { throw null; } set { } }
+        public Azure.ResourceManager.ApiManagement.Models.ConfirmationEmailType? Confirmation { get { throw null; } set { } }
+        public string Email { get { throw null; } set { } }
+        public string FirstName { get { throw null; } set { } }
+        public System.Collections.Generic.IList<Azure.ResourceManager.ApiManagement.Models.UserIdentityContract> Identities { get { throw null; } }
+        public string LastName { get { throw null; } set { } }
+        public string Note { get { throw null; } set { } }
+        public string Password { get { throw null; } set { } }
+        public Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState? State { get { throw null; } set { } }
+    }
+    public partial class ApiManagementUserPatch
+    {
+        public ApiManagementUserPatch() { }
+        public string Email { get { throw null; } set { } }
+        public string FirstName { get { throw null; } set { } }
+        public System.Collections.Generic.IList<Azure.ResourceManager.ApiManagement.Models.UserIdentityContract> Identities { get { throw null; } }
+        public string LastName { get { throw null; } set { } }
+        public string Note { get { throw null; } set { } }
+        public string Password { get { throw null; } set { } }
+        public Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState? State { get { throw null; } set { } }
+    }
+    [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public readonly partial struct ApiManagementUserState : System.IEquatable<Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState>
+    {
+        private readonly object _dummy;
+        private readonly int _dummyPrimitive;
+        public ApiManagementUserState(string value) { throw null; }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState Active { get { throw null; } }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState Blocked { get { throw null; } }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState Deleted { get { throw null; } }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState Pending { get { throw null; } }
+        public bool Equals(Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState other) { throw null; }
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+        public override bool Equals(object obj) { throw null; }
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+        public override int GetHashCode() { throw null; }
+        public static bool operator ==(Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState left, Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState right) { throw null; }
+        public static implicit operator Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState (string value) { throw null; }
+        public static bool operator !=(Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState left, Azure.ResourceManager.ApiManagement.Models.ApiManagementUserState right) { throw null; }
+        public override string ToString() { throw null; }
+    }
+    [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public readonly partial struct ApiOperationInvokableProtocol : System.IEquatable<Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol>
+    {
+        private readonly object _dummy;
+        private readonly int _dummyPrimitive;
+        public ApiOperationInvokableProtocol(string value) { throw null; }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol Http { get { throw null; } }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol Https { get { throw null; } }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol Ws { get { throw null; } }
+        public static Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol Wss { get { throw null; } }
+        public bool Equals(Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol other) { throw null; }
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+        public override bool Equals(object obj) { throw null; }
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+        public override int GetHashCode() { throw null; }
+        public static bool operator ==(Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol left, Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol right) { throw null; }
+        public static implicit operator Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol (string value) { throw null; }
+        public static bool operator !=(Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol left, Azure.ResourceManager.ApiManagement.Models.ApiOperationInvokableProtocol right) { throw null; }
+        public override string ToString() { throw null; }
+    }
+    public enum ApiManagementSkuRestrictionsType
+    {
+        Location = 0,
+        Zone = 1,
+    }
+    public partial class ApiManagementSkuZoneDetails
+    {
+        internal ApiManagementSkuZoneDetails() { }
+        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.ApiManagement.Models.ApiManagementSkuCapabilities> Capabilities { get { throw null; } }
+        public System.Collections.Generic.IReadOnlyList<string> Name { get { throw null; } }
+    }
+    public partial class ApiManagementSubscriptionCreateOrUpdateContent
+    {
+        public ApiManagementSubscriptionCreateOrUpdateContent() { }
+        public bool? AllowTracing { get { throw null; } set { } }
+        public string DisplayName { get { throw null; } set { } }
+        public string OwnerId { get { throw null; } set { } }
+        public string PrimaryKey { get { throw null; } set { } }
+        public string Scope { get { throw null; } set { } }
+        public string SecondaryKey { get { throw null; } set { } }
+        public Azure.ResourceManager.ApiManagement.Models.SubscriptionState? State { get { throw null; } set { } }
+    }
+    public partial class ApiManagementSubscriptionPatch
+    {
+        public ApiManagementSubscriptionPatch() { }
+        public bool? AllowTracing { get { throw null; } set { } }
+        public string DisplayName { get { throw null; } set { } }
         public System.DateTimeOffset? ExpireOn { get { throw null; } set { } }
         public string OwnerId { get { throw null; } set { } }
         public string PrimaryKey { get { throw null; } set { } }
@@ -3739,18 +3843,14 @@ namespace Azure.ResourceManager.ApiManagement.Models
         public override string ToString() { throw null; }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public readonly partial struct IdentityProviderType : System.IEquatable<Azure.ResourceManager.ApiManagement.Models.IdentityProviderType>
+    public readonly partial struct IssueSeverity : System.IEquatable<Azure.ResourceManager.ApiManagement.Models.IssueSeverity>
     {
         private readonly object _dummy;
         private readonly int _dummyPrimitive;
-        public IdentityProviderType(string value) { throw null; }
-        public static Azure.ResourceManager.ApiManagement.Models.IdentityProviderType Aad { get { throw null; } }
-        public static Azure.ResourceManager.ApiManagement.Models.IdentityProviderType AadB2C { get { throw null; } }
-        public static Azure.ResourceManager.ApiManagement.Models.IdentityProviderType Facebook { get { throw null; } }
-        public static Azure.ResourceManager.ApiManagement.Models.IdentityProviderType Google { get { throw null; } }
-        public static Azure.ResourceManager.ApiManagement.Models.IdentityProviderType Microsoft { get { throw null; } }
-        public static Azure.ResourceManager.ApiManagement.Models.IdentityProviderType Twitter { get { throw null; } }
-        public bool Equals(Azure.ResourceManager.ApiManagement.Models.IdentityProviderType other) { throw null; }
+        public IssueSeverity(string value) { throw null; }
+        public static Azure.ResourceManager.ApiManagement.Models.IssueSeverity Error { get { throw null; } }
+        public static Azure.ResourceManager.ApiManagement.Models.IssueSeverity Warning { get { throw null; } }
+        public bool Equals(Azure.ResourceManager.ApiManagement.Models.IssueSeverity other) { throw null; }
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         public override bool Equals(object obj) { throw null; }
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
