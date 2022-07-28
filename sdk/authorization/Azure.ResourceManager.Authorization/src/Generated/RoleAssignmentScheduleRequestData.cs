@@ -94,7 +94,7 @@ namespace Azure.ResourceManager.Authorization
         /// <summary> Justification for the role assignment. </summary>
         public string Justification { get; set; }
         /// <summary> Ticket Info of the role assignment. </summary>
-        public RoleAssignmentScheduleTicketInfo TicketInfo { get; set; }
+        public RoleAssignmentScheduleRequestPropertiesTicketInfo TicketInfo { get; set; }
         /// <summary> The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase &apos;foo_storage_container&apos;. </summary>
         public string Condition { get; set; }
         /// <summary> Version of the condition. Currently accepted value is &apos;2.0&apos;. </summary>

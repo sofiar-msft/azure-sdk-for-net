@@ -5,8 +5,6 @@
 
 #nullable disable
 
-using Azure.Core;
-
 namespace Azure.ResourceManager.Authorization.Models
 {
     /// <summary> The role management policy approval rule. </summary>

@@ -98,7 +98,27 @@ namespace Azure.ResourceManager.Authorization.Models
                     }
                     continue;
                 }
-                if (property.NameEquals("roleDefinition"))
+                if (property.NameEquals("location"))
+                {
+                    location = new AzureLocation(property.Value.GetString());
+                    continue;
+                }
+                if (property.NameEquals("id"))
+                {
+                    id = new ResourceIdentifier(property.Value.GetString());
+                    continue;
+                }
+                if (property.NameEquals("name"))
+                {
+                    name = property.Value.GetString();
+                    continue;
+                }
+                if (property.NameEquals("type"))
+                {
+                    type = new ResourceType(property.Value.GetString());
+                    continue;
+                }
+                if (property.NameEquals("systemData"))
                 {
                     if (property.Value.ValueKind == JsonValueKind.Null)
                     {

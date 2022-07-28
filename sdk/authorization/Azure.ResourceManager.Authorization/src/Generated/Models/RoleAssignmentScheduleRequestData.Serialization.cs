@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.Authorization
             if (Optional.IsDefined(TargetRoleAssignmentScheduleId))
             {
                 writer.WritePropertyName("targetRoleAssignmentScheduleId");
-                writer.WriteStringValue(TargetRoleAssignmentScheduleId);
+                writer.WriteStringValue(TargetRoleAssignmentScheduleId.Value);
             }
             if (Optional.IsDefined(TargetRoleAssignmentScheduleInstanceId))
             {
@@ -48,7 +48,7 @@ namespace Azure.ResourceManager.Authorization
             if (Optional.IsDefined(LinkedRoleEligibilityScheduleId))
             {
                 writer.WritePropertyName("linkedRoleEligibilityScheduleId");
-                writer.WriteStringValue(LinkedRoleEligibilityScheduleId);
+                writer.WriteStringValue(LinkedRoleEligibilityScheduleId.Value);
             }
             if (Optional.IsDefined(Justification))
             {
@@ -117,7 +117,7 @@ namespace Azure.ResourceManager.Authorization
             Optional<ResourceIdentifier> targetRoleAssignmentScheduleInstanceId = default;
             Optional<ResourceIdentifier> linkedRoleEligibilityScheduleId = default;
             Optional<string> justification = default;
-            Optional<RoleAssignmentScheduleTicketInfo> ticketInfo = default;
+            Optional<RoleAssignmentScheduleRequestPropertiesTicketInfo> ticketInfo = default;
             Optional<string> condition = default;
             Optional<string> conditionVersion = default;
             Optional<DateTimeOffset> createdOn = default;
@@ -265,7 +265,7 @@ namespace Azure.ResourceManager.Authorization
                                 property0.ThrowNonNullablePropertyIsNull();
                                 continue;
                             }
-                            ticketInfo = RoleAssignmentScheduleTicketInfo.DeserializeRoleAssignmentScheduleTicketInfo(property0.Value);
+                            ticketInfo = RoleAssignmentScheduleRequestPropertiesTicketInfo.DeserializeRoleAssignmentScheduleRequestPropertiesTicketInfo(property0.Value);
                             continue;
                         }
                         if (property0.NameEquals("condition"))
@@ -344,6 +344,70 @@ namespace Azure.ResourceManager.Authorization
                                                 continue;
                                             }
                                             type0 = new RoleManagementScheduleExpirationType(property2.Value.GetString());
+                                            continue;
+                                        }
+                                        if (property2.NameEquals("endDateTime"))
+                                        {
+                                            if (property2.Value.ValueKind == JsonValueKind.Null)
+                                            {
+                                                property2.ThrowNonNullablePropertyIsNull();
+                                                continue;
+                                            }
+                                            endDateTime = property2.Value.GetDateTimeOffset("O");
+                                            continue;
+                                        }
+                                        if (property2.NameEquals("duration"))
+                                        {
+                                            if (property2.Value.ValueKind == JsonValueKind.Null)
+                                            {
+                                                property2.ThrowNonNullablePropertyIsNull();
+                                                continue;
+                                            }
+                                            duration = property2.Value.GetTimeSpan("P");
+                                            continue;
+                                        }
+                                    }
+                                    continue;
+                                }
+                            }
+                            continue;
+                        }
+                        if (property0.NameEquals("scheduleInfo"))
+                        {
+                            if (property0.Value.ValueKind == JsonValueKind.Null)
+                            {
+                                property0.ThrowNonNullablePropertyIsNull();
+                                continue;
+                            }
+                            foreach (var property1 in property0.Value.EnumerateObject())
+                            {
+                                if (property1.NameEquals("startDateTime"))
+                                {
+                                    if (property1.Value.ValueKind == JsonValueKind.Null)
+                                    {
+                                        property1.ThrowNonNullablePropertyIsNull();
+                                        continue;
+                                    }
+                                    startDateTime = property1.Value.GetDateTimeOffset("O");
+                                    continue;
+                                }
+                                if (property1.NameEquals("expiration"))
+                                {
+                                    if (property1.Value.ValueKind == JsonValueKind.Null)
+                                    {
+                                        property1.ThrowNonNullablePropertyIsNull();
+                                        continue;
+                                    }
+                                    foreach (var property2 in property1.Value.EnumerateObject())
+                                    {
+                                        if (property2.NameEquals("type"))
+                                        {
+                                            if (property2.Value.ValueKind == JsonValueKind.Null)
+                                            {
+                                                property2.ThrowNonNullablePropertyIsNull();
+                                                continue;
+                                            }
+                                            type0 = new RoleAssignmentScheduleExpirationType(property2.Value.GetString());
                                             continue;
                                         }
                                         if (property2.NameEquals("endDateTime"))
