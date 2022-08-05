@@ -1035,7 +1035,6 @@ namespace Azure.ResourceManager.ApiManagement
         public bool? IsSubscriptionDelegationEnabled { get { throw null; } set { } }
         public bool? IsUserRegistrationDelegationEnabled { get { throw null; } set { } }
         public System.Uri Uri { get { throw null; } set { } }
-        public bool? UserRegistrationEnabled { get { throw null; } set { } }
         public string ValidationKey { get { throw null; } set { } }
     }
     public partial class ApiManagementPortalDelegationSettingResource : Azure.ResourceManager.ArmResource
@@ -2112,6 +2111,7 @@ namespace Azure.ResourceManager.ApiManagement
         public DiagnosticContractData() { }
         public Azure.ResourceManager.ApiManagement.Models.AlwaysLog? AlwaysLog { get { throw null; } set { } }
         public Azure.ResourceManager.ApiManagement.Models.PipelineDiagnosticSettings Backend { get { throw null; } set { } }
+        public bool? EnableLogClientIP { get { throw null; } set { } }
         public Azure.ResourceManager.ApiManagement.Models.PipelineDiagnosticSettings Frontend { get { throw null; } set { } }
         public Azure.ResourceManager.ApiManagement.Models.HttpCorrelationProtocol? HttpCorrelationProtocol { get { throw null; } set { } }
         public bool? IsLogClientIPEnabled { get { throw null; } set { } }

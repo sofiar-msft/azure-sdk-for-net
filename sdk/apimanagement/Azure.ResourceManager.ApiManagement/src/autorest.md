@@ -207,7 +207,6 @@ rename-mapping:
   SubscriptionContract.properties.notificationDate: NotifiesOn
   UserContract.properties.registrationDate: RegistriesOn
   AccessInformationSecretsContract: TenantAccessInfoSecretsDetails
-  AccessInformationSecretsContract.enabled: IsEnabled
   AccessInformationSecretsContract.id: AccessInfoType
   ApiManagementServiceCheckNameAvailabilityParameters: ApiManagementServiceNameAvailabilityContent
   ApiManagementServiceNameAvailabilityResult.nameAvailable: IsNameAvailable
