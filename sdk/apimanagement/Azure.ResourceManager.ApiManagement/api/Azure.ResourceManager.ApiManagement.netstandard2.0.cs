@@ -2111,7 +2111,6 @@ namespace Azure.ResourceManager.ApiManagement
         public DiagnosticContractData() { }
         public Azure.ResourceManager.ApiManagement.Models.AlwaysLog? AlwaysLog { get { throw null; } set { } }
         public Azure.ResourceManager.ApiManagement.Models.PipelineDiagnosticSettings Backend { get { throw null; } set { } }
-        public bool? EnableLogClientIP { get { throw null; } set { } }
         public Azure.ResourceManager.ApiManagement.Models.PipelineDiagnosticSettings Frontend { get { throw null; } set { } }
         public Azure.ResourceManager.ApiManagement.Models.HttpCorrelationProtocol? HttpCorrelationProtocol { get { throw null; } set { } }
         public bool? IsLogClientIPEnabled { get { throw null; } set { } }
