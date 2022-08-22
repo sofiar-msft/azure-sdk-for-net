@@ -180,6 +180,10 @@ directive:
         };
       delete $.Permission;
 
+  - from: authorization-RoleAssignmentsCalls.json
+    where: $.definitions
+    transform: >
+      $.RoleAssignmentProperties.properties.principalType['x-ms-enum']['name'] = 'RoleAssignmentPrincipalType';
   - from: RoleAssignmentSchedule.json
     where: $.definitions
     transform: >
