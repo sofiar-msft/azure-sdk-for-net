@@ -77,6 +77,7 @@ namespace Azure.Data.AppConfiguration
 
             _endpoint = endpoint;
             _syncTokenPolicy = new SyncTokenPolicy();
+            _syncToken = _syncTokenPolicy.ToString();
             _pipeline = CreatePipeline(options, new BearerTokenAuthenticationPolicy(credential, GetDefaultScope(endpoint)), _syncTokenPolicy);
             _apiVersion = options.Version;
 
@@ -184,6 +185,14 @@ namespace Azure.Data.AppConfiguration
                 scope.Failed(e);
                 throw;
             }
+        }
+
+        private static RequestContext CreateContext(CancellationToken cancellationToken)
+        {
+            return new RequestContext()
+            {
+                CancellationToken = cancellationToken,
+            };
         }
 
         /// <summary>
