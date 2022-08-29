@@ -2,7 +2,7 @@
 
 ## 1.1.0-beta.1 (Unreleased)
 
-### Features Added
+This is the first stable release of the App Configuration Management client library.
 
 - Added Update methods in resource classes.
 
