@@ -411,13 +411,13 @@ namespace Azure.ResourceManager.Authorization
             return GetExtensionClient(client, scope).GetAuthorizationRoleDefinitions();
         }
 
-        /// <summary> Gets a collection of RoleDefinitionResources in the ArmResource. </summary>
+        /// <summary> Gets a collection of AuthorizationRoleDefinitionResources in the ArmResource. </summary>
         /// <param name="client"> The <see cref="ArmClient" /> instance the method will execute against. </param>
         /// <param name="scope"> The scope that the resource will apply against. </param>
-        /// <returns> An object representing collection of RoleDefinitionResources and their operations over a RoleDefinitionResource. </returns>
-        public static RoleDefinitionCollection GetRoleDefinitions(this ArmClient client, ResourceIdentifier scope)
+        /// <returns> An object representing collection of AuthorizationRoleDefinitionResources and their operations over a AuthorizationRoleDefinitionResource. </returns>
+        public static AuthorizationRoleDefinitionCollection GetAuthorizationRoleDefinitions(this ArmClient client, ResourceIdentifier scope)
         {
-            return GetExtensionClient(client, scope).GetRoleDefinitions();
+            return GetExtensionClient(client, scope).GetAuthorizationRoleDefinitions();
         }
 
         /// <summary>
@@ -462,9 +462,9 @@ namespace Azure.ResourceManager.Authorization
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="roleDefinitionId"/> is null. </exception>
         [ForwardsClientCalls]
-        public static async Task<Response<RoleDefinitionResource>> GetRoleDefinitionAsync(this ArmClient client, ResourceIdentifier scope, ResourceIdentifier roleDefinitionId, CancellationToken cancellationToken = default)
+        public static async Task<Response<AuthorizationRoleDefinitionResource>> GetAuthorizationRoleDefinitionAsync(this ArmClient client, ResourceIdentifier scope, ResourceIdentifier roleDefinitionId, CancellationToken cancellationToken = default)
         {
-            return await client.GetRoleDefinitions(scope).GetAsync(roleDefinitionId, cancellationToken).ConfigureAwait(false);
+            return await client.GetAuthorizationRoleDefinitions(scope).GetAsync(roleDefinitionId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -509,9 +509,9 @@ namespace Azure.ResourceManager.Authorization
         /// <param name="cancellationToken"> The cancellation token to use. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="roleDefinitionId"/> is null. </exception>
         [ForwardsClientCalls]
-        public static Response<RoleDefinitionResource> GetRoleDefinition(this ArmClient client, ResourceIdentifier scope, ResourceIdentifier roleDefinitionId, CancellationToken cancellationToken = default)
+        public static Response<AuthorizationRoleDefinitionResource> GetAuthorizationRoleDefinition(this ArmClient client, ResourceIdentifier scope, ResourceIdentifier roleDefinitionId, CancellationToken cancellationToken = default)
         {
-            return client.GetRoleDefinitions(scope).Get(roleDefinitionId, cancellationToken);
+            return client.GetAuthorizationRoleDefinitions(scope).Get(roleDefinitionId, cancellationToken);
         }
 
         /// <summary> Gets a collection of RoleAssignmentScheduleResources in the ArmResource. </summary>

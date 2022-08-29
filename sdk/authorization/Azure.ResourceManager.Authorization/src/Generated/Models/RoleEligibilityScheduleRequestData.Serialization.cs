@@ -38,12 +38,12 @@ namespace Azure.ResourceManager.Authorization
             if (Optional.IsDefined(TargetRoleEligibilityScheduleId))
             {
                 writer.WritePropertyName("targetRoleEligibilityScheduleId");
-                writer.WriteStringValue(TargetRoleEligibilityScheduleId);
+                writer.WriteStringValue(TargetRoleEligibilityScheduleId.Value);
             }
             if (Optional.IsDefined(TargetRoleEligibilityScheduleInstanceId))
             {
                 writer.WritePropertyName("targetRoleEligibilityScheduleInstanceId");
-                writer.WriteStringValue(TargetRoleEligibilityScheduleInstanceId);
+                writer.WriteStringValue(TargetRoleEligibilityScheduleInstanceId.Value);
             }
             if (Optional.IsDefined(Justification))
             {
@@ -391,7 +391,7 @@ namespace Azure.ResourceManager.Authorization
                                                 property2.ThrowNonNullablePropertyIsNull();
                                                 continue;
                                             }
-                                            type0 = new RoleEligibilityScheduleExpirationType(property2.Value.GetString());
+                                            type0 = new RoleManagementScheduleExpirationType(property2.Value.GetString());
                                             continue;
                                         }
                                         if (property2.NameEquals("endDateTime"))
@@ -424,7 +424,7 @@ namespace Azure.ResourceManager.Authorization
                     continue;
                 }
             }
-            return new RoleEligibilityScheduleRequestData(id, name, type, systemData.Value, scope.Value, roleDefinitionId.Value, Optional.ToNullable(principalId), Optional.ToNullable(principalType), Optional.ToNullable(requestType), Optional.ToNullable(status), approvalId.Value, targetRoleEligibilityScheduleId.Value, targetRoleEligibilityScheduleInstanceId.Value, justification.Value, ticketInfo.Value, condition.Value, conditionVersion.Value, Optional.ToNullable(createdOn), Optional.ToNullable(requestorId), expandedProperties.Value, Optional.ToNullable(startDateTime), Optional.ToNullable(type0), Optional.ToNullable(endDateTime), Optional.ToNullable(duration));
+            return new RoleEligibilityScheduleRequestData(id, name, type, systemData.Value, scope.Value, roleDefinitionId.Value, Optional.ToNullable(principalId), Optional.ToNullable(principalType), Optional.ToNullable(requestType), Optional.ToNullable(status), approvalId.Value, Optional.ToNullable(targetRoleEligibilityScheduleId), Optional.ToNullable(targetRoleEligibilityScheduleInstanceId), justification.Value, ticketInfo.Value, condition.Value, conditionVersion.Value, Optional.ToNullable(createdOn), Optional.ToNullable(requestorId), expandedProperties.Value, Optional.ToNullable(startDateTime), Optional.ToNullable(type0), Optional.ToNullable(endDateTime), Optional.ToNullable(duration));
         }
     }
 }

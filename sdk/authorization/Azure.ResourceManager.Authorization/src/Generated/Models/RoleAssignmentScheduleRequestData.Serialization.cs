@@ -117,7 +117,7 @@ namespace Azure.ResourceManager.Authorization
             Optional<ResourceIdentifier> targetRoleAssignmentScheduleInstanceId = default;
             Optional<ResourceIdentifier> linkedRoleEligibilityScheduleId = default;
             Optional<string> justification = default;
-            Optional<RoleAssignmentScheduleRequestPropertiesTicketInfo> ticketInfo = default;
+            Optional<RoleAssignmentScheduleTicketInfo> ticketInfo = default;
             Optional<string> condition = default;
             Optional<string> conditionVersion = default;
             Optional<DateTimeOffset> createdOn = default;
@@ -265,7 +265,7 @@ namespace Azure.ResourceManager.Authorization
                                 property0.ThrowNonNullablePropertyIsNull();
                                 continue;
                             }
-                            ticketInfo = RoleAssignmentScheduleRequestPropertiesTicketInfo.DeserializeRoleAssignmentScheduleRequestPropertiesTicketInfo(property0.Value);
+                            ticketInfo = RoleAssignmentScheduleTicketInfo.DeserializeRoleAssignmentScheduleTicketInfo(property0.Value);
                             continue;
                         }
                         if (property0.NameEquals("condition"))
@@ -407,7 +407,7 @@ namespace Azure.ResourceManager.Authorization
                                                 property2.ThrowNonNullablePropertyIsNull();
                                                 continue;
                                             }
-                                            type0 = new RoleAssignmentScheduleExpirationType(property2.Value.GetString());
+                                            type0 = new RoleManagementScheduleExpirationType(property2.Value.GetString());
                                             continue;
                                         }
                                         if (property2.NameEquals("endDateTime"))

@@ -15,8 +15,7 @@ namespace Azure.ResourceManager.Authorization.Models
     public partial class PolicyAssignmentProperties : ResourceData
     {
         /// <summary> Initializes a new instance of PolicyAssignmentProperties. </summary>
-        /// <param name="location"> The location. </param>
-        internal PolicyAssignmentProperties(AzureLocation location) : base(location)
+        internal PolicyAssignmentProperties()
         {
         }
 
