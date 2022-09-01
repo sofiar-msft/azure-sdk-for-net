@@ -38,7 +38,7 @@ namespace Azure.ResourceManager.Authorization
             if (Optional.IsDefined(TargetRoleAssignmentScheduleId))
             {
                 writer.WritePropertyName("targetRoleAssignmentScheduleId");
-                writer.WriteStringValue(TargetRoleAssignmentScheduleId.Value);
+                writer.WriteStringValue(TargetRoleAssignmentScheduleId);
             }
             if (Optional.IsDefined(TargetRoleAssignmentScheduleInstanceId))
             {
@@ -48,7 +48,7 @@ namespace Azure.ResourceManager.Authorization
             if (Optional.IsDefined(LinkedRoleEligibilityScheduleId))
             {
                 writer.WritePropertyName("linkedRoleEligibilityScheduleId");
-                writer.WriteStringValue(LinkedRoleEligibilityScheduleId.Value);
+                writer.WriteStringValue(LinkedRoleEligibilityScheduleId);
             }
             if (Optional.IsDefined(Justification))
             {
