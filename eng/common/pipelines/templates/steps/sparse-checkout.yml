@@ -11,6 +11,9 @@ parameters:
   - name: SkipCheckoutNone
     type: boolean
     default: false
+  - name: SkipCheckoutNone
+    type: boolean
+    default: false
 
 steps:
   - ${{ if not(parameters.SkipCheckoutNone) }}:
