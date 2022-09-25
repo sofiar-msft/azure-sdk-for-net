@@ -37,6 +37,8 @@ This is the first stable release of the Api Management Management library.
 - Renamed `ExpiresOn` to `ExpireOn`.
 - Renamed method `GetProductSubscriptions` to `GetAllProductSubscriptionData`.
 
+- Renamed `ExpiresOn` to `ExpireOn`.
+
 ### Other Changes
 
 - Upgraded dependent Azure.ResourceManager to 1.3.1.

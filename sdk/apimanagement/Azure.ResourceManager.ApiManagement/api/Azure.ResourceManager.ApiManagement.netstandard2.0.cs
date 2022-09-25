@@ -2819,7 +2819,7 @@ namespace Azure.ResourceManager.ApiManagement.Models
         public ApiManagementSubscriptionPatch() { }
         public bool? AllowTracing { get { throw null; } set { } }
         public string DisplayName { get { throw null; } set { } }
-        public System.DateTimeOffset? ExpiresOn { get { throw null; } set { } }
+        public System.DateTimeOffset? ExpireOn { get { throw null; } set { } }
         public string OwnerId { get { throw null; } set { } }
         public string PrimaryKey { get { throw null; } set { } }
         public string Scope { get { throw null; } set { } }
