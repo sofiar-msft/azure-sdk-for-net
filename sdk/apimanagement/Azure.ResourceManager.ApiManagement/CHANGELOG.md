@@ -2,7 +2,7 @@
 
 ## 1.1.0-beta.1 (Unreleased)
 
-### Features Added
+This is the first stable release of the Api Management Management library.
 
 ### Breaking Changes
 
@@ -38,6 +38,7 @@ This is the first stable release of the Api Management Management library.
 - Renamed method `GetProductSubscriptions` to `GetAllProductSubscriptionData`.
 
 - Renamed `ExpiresOn` to `ExpireOn`.
+- Renamed method `GetProductSubscriptions` to `GetAllProductSubscriptionData`.
 
 ### Other Changes
 
