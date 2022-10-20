@@ -10,6 +10,8 @@ $PackageRepositoryUri = "https://www.nuget.org/packages"
 
 . "$PSScriptRoot/docs/Docs-ToC.ps1"
 
+. "$PSScriptRoot/docs/Docs-ToC.ps1"
+
 function Get-AllPackageInfoFromRepo($serviceDirectory)
 {
   $allPackageProps = @()
