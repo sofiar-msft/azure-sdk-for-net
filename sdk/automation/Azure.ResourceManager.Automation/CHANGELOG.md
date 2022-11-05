@@ -2,11 +2,21 @@
 
 ## 1.1.0-beta.1 (Unreleased)
 
-### Features Added
+This package is the first stable release of the Microsoft Azure Automation management client library.
 
 ### Breaking Changes
 
-### Bugs Fixed
+Polishing since last public beta release:
+- Prepended `Automation` prefix to all single / simple model names.
+- Corrected the format of all `Guid` type properties / parameters.
+- Corrected the format of all `ResourceIdentifier` type properties / parameters.
+- Corrected the format of all `Uri` type properties / parameters.
+- Corrected the format of all `AzureLocation` type properties / parameters.
+- Corrected the format of all binary type properties / parameters.
+- Corrected all acronyms that don't follow [.NET Naming Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/naming-guidelines).
+- Corrected the suffix of `DateTimeOffset` properties / parameters.
+- Corrected the name of interval / duration properties / parameters that end with units.
+- Optimized the name of some models and functions.
 
 ### Other Changes
 
