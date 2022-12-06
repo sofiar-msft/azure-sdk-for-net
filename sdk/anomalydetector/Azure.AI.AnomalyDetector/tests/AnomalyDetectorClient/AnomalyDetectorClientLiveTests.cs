@@ -25,10 +25,10 @@ namespace Azure.AI.AnomalyDetector.Tests
         {
         }
 
-        // [Test]
-        // public async Task GetResultForEntireDetect()
-        // {
-        //     var client = CreateAnomalyDetectorClient();
+        [Test]
+        public async Task GetResultForEntireDetect()
+        {
+            var client = CreateAnomalyDetectorClient();
 
             var request = TestData.TestPointSeries;
             request.MaxAnomalyRatio = 0.25F;
@@ -44,10 +44,10 @@ namespace Azure.AI.AnomalyDetector.Tests
             Assert.IsNotNull(result.Value.Severity);
         }
 
-        // [Test]
-        // public async Task GetResultForLastDetect()
-        // {
-        //     var client = CreateAnomalyDetectorClient();
+        [Test]
+        public async Task GetResultForLastDetect()
+        {
+            var client = CreateAnomalyDetectorClient();
 
             var request = TestData.TestPointSeries;
             request.MaxAnomalyRatio = 0.25F;
@@ -65,10 +65,10 @@ namespace Azure.AI.AnomalyDetector.Tests
             Assert.IsNotNull(result.Value.Severity);
         }
 
-        // [Test]
-        // public async Task GetResultForChangePointDetect()
-        // {
-        //     var client = CreateAnomalyDetectorClient();
+        [Test]
+        public async Task GetResultForChangePointDetect()
+        {
+            var client = CreateAnomalyDetectorClient();
 
             var request = TestData.TestChangePointSeries;
             request.CustomInterval = 5;
