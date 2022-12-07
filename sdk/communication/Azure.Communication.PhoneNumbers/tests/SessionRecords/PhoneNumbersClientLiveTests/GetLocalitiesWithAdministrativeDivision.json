@@ -6,11 +6,11 @@
       "RequestHeaders": {
         "Accept": "application/json",
         "Authorization": "Sanitized",
-        "traceparent": "00-66c9cadae2b3ff479a0abbccb6f2add8-1e783920274e6346-00",
-        "User-Agent": "azsdk-net-Communication.PhoneNumbers/1.1.0-alpha.20221205.1 (.NET Core 3.1.31; Microsoft Windows 10.0.22621)",
-        "x-ms-client-request-id": "0a1714df7bc061f61dd5438ae280519d",
+        "traceparent": "00-918c286b7d36444f8586e74eefe1f3f6-43ec652d1dcc0d4c-00",
+        "User-Agent": "azsdk-net-Communication.PhoneNumbers/1.1.0-alpha.20221207.1 (.NET Core 3.1.31; Microsoft Windows 10.0.22621)",
+        "x-ms-client-request-id": "7ab841d355f0e0b6f5c314ade9295c14",
         "x-ms-content-sha256": "Sanitized",
-        "x-ms-date": "Mon, 05 Dec 2022 17:47:29 GMT",
+        "x-ms-date": "Wed, 07 Dec 2022 18:57:56 GMT",
         "x-ms-return-client-request-id": "true",
         "x-ms-useragent": "acs-test"
       },
@@ -19,13 +19,13 @@
       "ResponseHeaders": {
         "api-supported-versions": "2022-12-01",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Mon, 05 Dec 2022 17:47:28 GMT",
-        "MS-CV": "U7NEV3uxikmM4ZMIO1\u002B2JQ.0",
+        "Date": "Wed, 07 Dec 2022 18:57:56 GMT",
+        "MS-CV": "MtruTxxAkkS\u002BLNvXTdexmA.0",
         "Strict-Transport-Security": "max-age=2592000",
         "Transfer-Encoding": "chunked",
-        "X-Azure-Ref": "0sS6OYwAAAAD/0OloTkPpTJryAzHpiJrOTUVYMzFFREdFMDMyMgA5ZmM3YjUxOS1hOGNjLTRmODktOTM1ZS1jOTE0OGFlMDllODE=",
+        "X-Azure-Ref": "0NOKQYwAAAABlnaIkVd9xR6itU1LW4n8kTUVYMzFFREdFMDMxNwA5ZmM3YjUxOS1hOGNjLTRmODktOTM1ZS1jOTE0OGFlMDllODE=",
         "X-Cache": "CONFIG_NOCACHE",
-        "X-Processing-Time": "638ms"
+        "X-Processing-Time": "673ms"
       },
       "ResponseBody": {
         "phoneNumberLocalities": [
@@ -93,13 +93,6 @@
             }
           },
           {
-            "localizedName": "Anaheim",
-            "administrativeDivision": {
-              "localizedName": "CA",
-              "abbreviatedName": "CA"
-            }
-          },
-          {
             "localizedName": "Burbank",
             "administrativeDivision": {
               "localizedName": "CA",
@@ -115,13 +108,6 @@
           },
           {
             "localizedName": "Fresno",
-            "administrativeDivision": {
-              "localizedName": "CA",
-              "abbreviatedName": "CA"
-            }
-          },
-          {
-            "localizedName": "Irvine",
             "administrativeDivision": {
               "localizedName": "CA",
               "abbreviatedName": "CA"
@@ -401,6 +387,13 @@
             }
           },
           {
+            "localizedName": "Iowa City",
+            "administrativeDivision": {
+              "localizedName": "IA",
+              "abbreviatedName": "IA"
+            }
+          },
+          {
             "localizedName": "Mason City",
             "administrativeDivision": {
               "localizedName": "IA",
@@ -562,6 +555,13 @@
             }
           },
           {
+            "localizedName": "Owensboro",
+            "administrativeDivision": {
+              "localizedName": "KY",
+              "abbreviatedName": "KY"
+            }
+          },
+          {
             "localizedName": "Baton Rouge",
             "administrativeDivision": {
               "localizedName": "LA",
@@ -709,6 +709,13 @@
             }
           },
           {
+            "localizedName": "Troy",
+            "administrativeDivision": {
+              "localizedName": "MI",
+              "abbreviatedName": "MI"
+            }
+          },
+          {
             "localizedName": "Alexandria",
             "administrativeDivision": {
               "localizedName": "MN",
@@ -717,13 +724,6 @@
           },
           {
             "localizedName": "Duluth",
-            "administrativeDivision": {
-              "localizedName": "MN",
-              "abbreviatedName": "MN"
-            }
-          },
-          {
-            "localizedName": "Mankato",
             "administrativeDivision": {
               "localizedName": "MN",
               "abbreviatedName": "MN"
@@ -739,11 +739,11 @@
       "RequestHeaders": {
         "Accept": "application/json",
         "Authorization": "Sanitized",
-        "traceparent": "00-0269944ef162b5408e25f1906dab71e8-aac3893294b6f140-00",
-        "User-Agent": "azsdk-net-Communication.PhoneNumbers/1.1.0-alpha.20221205.1 (.NET Core 3.1.31; Microsoft Windows 10.0.22621)",
-        "x-ms-client-request-id": "715f9f791bfa267599d3679b10d5e087",
+        "traceparent": "00-18ed52edea48f947b7327409d19b4926-a8702ed408cab745-00",
+        "User-Agent": "azsdk-net-Communication.PhoneNumbers/1.1.0-alpha.20221207.1 (.NET Core 3.1.31; Microsoft Windows 10.0.22621)",
+        "x-ms-client-request-id": "b3c25531c199d89889b8972e8858ef72",
         "x-ms-content-sha256": "Sanitized",
-        "x-ms-date": "Mon, 05 Dec 2022 17:47:29 GMT",
+        "x-ms-date": "Wed, 07 Dec 2022 18:57:57 GMT",
         "x-ms-return-client-request-id": "true",
         "x-ms-useragent": "acs-test"
       },
@@ -752,13 +752,13 @@
       "ResponseHeaders": {
         "api-supported-versions": "2022-12-01",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Mon, 05 Dec 2022 17:47:29 GMT",
-        "MS-CV": "XLhWbayEF0CWvgM47dFmtw.0",
+        "Date": "Wed, 07 Dec 2022 18:57:57 GMT",
+        "MS-CV": "CCJ5BMoGskexr/tkUN/htg.0",
         "Strict-Transport-Security": "max-age=2592000",
         "Transfer-Encoding": "chunked",
-        "X-Azure-Ref": "0sS6OYwAAAABu8mvI666gSb0bKGSlImS9TUVYMzFFREdFMDMyMgA5ZmM3YjUxOS1hOGNjLTRmODktOTM1ZS1jOTE0OGFlMDllODE=",
+        "X-Azure-Ref": "0NeKQYwAAAAANDg8ghIrnSoTjDIrEJRFITUVYMzFFREdFMDMxNwA5ZmM3YjUxOS1hOGNjLTRmODktOTM1ZS1jOTE0OGFlMDllODE=",
         "X-Cache": "CONFIG_NOCACHE",
-        "X-Processing-Time": "669ms"
+        "X-Processing-Time": "809ms"
       },
       "ResponseBody": {
         "phoneNumberLocalities": [
@@ -776,6 +776,6 @@
   ],
   "Variables": {
     "COMMUNICATION_LIVETEST_STATIC_CONNECTION_STRING": "endpoint=https://smstestapp.communication.azure.com/;accesskey=Kg==",
-    "RandomSeed": "1739044678"
+    "RandomSeed": "595106775"
   }
 }

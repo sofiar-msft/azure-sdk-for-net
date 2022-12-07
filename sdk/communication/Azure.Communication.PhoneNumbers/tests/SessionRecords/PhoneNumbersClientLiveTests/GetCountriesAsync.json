@@ -6,11 +6,11 @@
       "RequestHeaders": {
         "Accept": "application/json",
         "Authorization": "Sanitized",
-        "traceparent": "00-3ec3e20f91cd4040a9193e644e69de41-320b5d766c6ebc48-00",
-        "User-Agent": "azsdk-net-Communication.PhoneNumbers/1.1.0-alpha.20221205.1 (.NET Core 3.1.31; Microsoft Windows 10.0.22621)",
-        "x-ms-client-request-id": "2884b0b556d319d14961199feada7390",
+        "traceparent": "00-622765d6e8448240ab00691d72604c2f-5d6998f7d6058148-00",
+        "User-Agent": "azsdk-net-Communication.PhoneNumbers/1.1.0-alpha.20221207.1 (.NET Core 3.1.31; Microsoft Windows 10.0.22621)",
+        "x-ms-client-request-id": "439af21f32dbb695a79a3ae17bce5bfd",
         "x-ms-content-sha256": "Sanitized",
-        "x-ms-date": "Mon, 05 Dec 2022 17:48:29 GMT",
+        "x-ms-date": "Wed, 07 Dec 2022 18:59:42 GMT",
         "x-ms-return-client-request-id": "true",
         "x-ms-useragent": "acs-test"
       },
@@ -19,13 +19,13 @@
       "ResponseHeaders": {
         "api-supported-versions": "2022-12-01",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Mon, 05 Dec 2022 17:48:32 GMT",
-        "MS-CV": "tObUb9HFjEizbWdqpIaVaw.0",
+        "Date": "Wed, 07 Dec 2022 18:59:44 GMT",
+        "MS-CV": "5Deuxi0gIUO7JwMlIsf6vQ.0",
         "Strict-Transport-Security": "max-age=2592000",
         "Transfer-Encoding": "chunked",
-        "X-Azure-Ref": "07S6OYwAAAAAOp1mnQxncSpWp6F68IqAOTUVYMzFFREdFMDMyMgA5ZmM3YjUxOS1hOGNjLTRmODktOTM1ZS1jOTE0OGFlMDllODE=",
+        "X-Azure-Ref": "0neKQYwAAAADFeAEGjNibSoYO83fftveeTUVYMzFFREdFMDMxNwA5ZmM3YjUxOS1hOGNjLTRmODktOTM1ZS1jOTE0OGFlMDllODE=",
         "X-Cache": "CONFIG_NOCACHE",
-        "X-Processing-Time": "2682ms"
+        "X-Processing-Time": "2924ms"
       },
       "ResponseBody": {
         "countries": [
@@ -68,6 +68,6 @@
   ],
   "Variables": {
     "COMMUNICATION_LIVETEST_STATIC_CONNECTION_STRING": "endpoint=https://smstestapp.communication.azure.com/;accesskey=Kg==",
-    "RandomSeed": "1448232266"
+    "RandomSeed": "57100965"
   }
 }
