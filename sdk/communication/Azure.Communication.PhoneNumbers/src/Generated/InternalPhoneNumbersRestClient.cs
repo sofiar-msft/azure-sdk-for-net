@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace Azure.Communication.PhoneNumbers
         /// <param name="endpoint"> The communication resource, for example https://resourcename.communication.azure.com. </param>
         /// <param name="apiVersion"> Api Version. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="clientDiagnostics"/>, <paramref name="pipeline"/>, <paramref name="endpoint"/> or <paramref name="apiVersion"/> is null. </exception>
-        public InternalPhoneNumbersRestClient(ClientDiagnostics clientDiagnostics, HttpPipeline pipeline, string endpoint, string apiVersion = "2023-10-01-preview")
+        public InternalPhoneNumbersRestClient(ClientDiagnostics clientDiagnostics, HttpPipeline pipeline, string endpoint, string apiVersion = "2024-03-01-preview")
         {
             ClientDiagnostics = clientDiagnostics ?? throw new ArgumentNullException(nameof(clientDiagnostics));
             _pipeline = pipeline ?? throw new ArgumentNullException(nameof(pipeline));
@@ -604,7 +605,7 @@ namespace Azure.Communication.PhoneNumbers
             return message;
         }
 
-        internal HttpMessage CreateOperatorInformationSearchRequest(IEnumerable<string> phoneNumbers)
+        internal HttpMessage CreateOperatorInformationSearchRequest(IEnumerable<string> phoneNumbers, OperatorInformationOptions options)
         {
             var message = _pipeline.CreateMessage();
             var request = message.Request;
@@ -616,27 +617,29 @@ namespace Azure.Communication.PhoneNumbers
             request.Uri = uri;
             request.Headers.Add("Accept", "application/json");
             request.Headers.Add("Content-Type", "application/json");
-            OperatorInformationRequest operatorInformationRequest = new OperatorInformationRequest();
-            if (phoneNumbers != null)
+            var model = new OperatorInformationRequest(phoneNumbers.ToList())
             {
-                foreach (var value in phoneNumbers)
-                {
-                    operatorInformationRequest.PhoneNumbers.Add(value);
-                }
-            }
-            var model = operatorInformationRequest;
+                Options = options
+            };
             var content = new Utf8JsonRequestContent();
             content.JsonWriter.WriteObjectValue<OperatorInformationRequest>(model);
             request.Content = content;
             return message;
         }
 
-        /// <summary> Searches for operator information for a given list of phone numbers. </summary>
+        /// <summary> Searches for number format and operator information for a given list of phone numbers. </summary>
         /// <param name="phoneNumbers"> Phone number(s) whose operator information is being requested. </param>
+        /// <param name="options"> Represents options to modify a search request for operator information. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public async Task<Response<OperatorInformationResult>> OperatorInformationSearchAsync(IEnumerable<string> phoneNumbers = null, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentNullException"> <paramref name="phoneNumbers"/> is null. </exception>
+        public async Task<Response<OperatorInformationResult>> OperatorInformationSearchAsync(IEnumerable<string> phoneNumbers, OperatorInformationOptions options = null, CancellationToken cancellationToken = default)
         {
-            using var message = CreateOperatorInformationSearchRequest(phoneNumbers);
+            if (phoneNumbers == null)
+            {
+                throw new ArgumentNullException(nameof(phoneNumbers));
+            }
+
+            using var message = CreateOperatorInformationSearchRequest(phoneNumbers, options);
             await _pipeline.SendAsync(message, cancellationToken).ConfigureAwait(false);
             switch (message.Response.Status)
             {
@@ -652,12 +655,19 @@ namespace Azure.Communication.PhoneNumbers
             }
         }
 
-        /// <summary> Searches for operator information for a given list of phone numbers. </summary>
+        /// <summary> Searches for number format and operator information for a given list of phone numbers. </summary>
         /// <param name="phoneNumbers"> Phone number(s) whose operator information is being requested. </param>
+        /// <param name="options"> Represents options to modify a search request for operator information. </param>
         /// <param name="cancellationToken"> The cancellation token to use. </param>
-        public Response<OperatorInformationResult> OperatorInformationSearch(IEnumerable<string> phoneNumbers = null, CancellationToken cancellationToken = default)
+        /// <exception cref="ArgumentNullException"> <paramref name="phoneNumbers"/> is null. </exception>
+        public Response<OperatorInformationResult> OperatorInformationSearch(IEnumerable<string> phoneNumbers, OperatorInformationOptions options = null, CancellationToken cancellationToken = default)
         {
-            using var message = CreateOperatorInformationSearchRequest(phoneNumbers);
+            if (phoneNumbers == null)
+            {
+                throw new ArgumentNullException(nameof(phoneNumbers));
+            }
+
+            using var message = CreateOperatorInformationSearchRequest(phoneNumbers, options);
             _pipeline.Send(message, cancellationToken);
             switch (message.Response.Status)
             {
