@@ -29,22 +29,22 @@ namespace Azure.ResourceManager.Logic.Models
             if (Optional.IsDefined(Triggers))
             {
                 writer.WritePropertyName("triggers"u8);
-                writer.WriteObjectValue(Triggers);
+                writer.WriteObjectValue<FlowAccessControlConfigurationPolicy>(Triggers, options);
             }
             if (Optional.IsDefined(Contents))
             {
                 writer.WritePropertyName("contents"u8);
-                writer.WriteObjectValue(Contents);
+                writer.WriteObjectValue<FlowAccessControlConfigurationPolicy>(Contents, options);
             }
             if (Optional.IsDefined(Actions))
             {
                 writer.WritePropertyName("actions"u8);
-                writer.WriteObjectValue(Actions);
+                writer.WriteObjectValue<FlowAccessControlConfigurationPolicy>(Actions, options);
             }
             if (Optional.IsDefined(WorkflowManagement))
             {
                 writer.WritePropertyName("workflowManagement"u8);
-                writer.WriteObjectValue(WorkflowManagement);
+                writer.WriteObjectValue<FlowAccessControlConfigurationPolicy>(WorkflowManagement, options);
             }
             if (options.Format != "W" && _serializedAdditionalRawData != null)
             {
@@ -89,7 +89,7 @@ namespace Azure.ResourceManager.Logic.Models
             FlowAccessControlConfigurationPolicy actions = default;
             FlowAccessControlConfigurationPolicy workflowManagement = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("triggers"u8))
@@ -130,10 +130,10 @@ namespace Azure.ResourceManager.Logic.Models
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new FlowAccessControlConfiguration(triggers, contents, actions, workflowManagement, serializedAdditionalRawData);
         }
 

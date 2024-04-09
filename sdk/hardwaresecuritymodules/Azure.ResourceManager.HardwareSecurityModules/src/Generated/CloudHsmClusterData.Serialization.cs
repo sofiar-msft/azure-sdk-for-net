@@ -31,7 +31,7 @@ namespace Azure.ResourceManager.HardwareSecurityModules
             if (Optional.IsDefined(Sku))
             {
                 writer.WritePropertyName("sku"u8);
-                writer.WriteObjectValue(Sku);
+                writer.WriteObjectValue<CloudHsmClusterSku>(Sku, options);
             }
             if (Optional.IsDefined(Identity))
             {
@@ -87,7 +87,7 @@ namespace Azure.ResourceManager.HardwareSecurityModules
             if (Optional.IsDefined(SecurityDomain))
             {
                 writer.WritePropertyName("securityDomain"u8);
-                writer.WriteObjectValue(SecurityDomain);
+                writer.WriteObjectValue<CloudHsmClusterSecurityDomainProperties>(SecurityDomain, options);
             }
             if (Optional.IsCollectionDefined(Hsms))
             {
@@ -95,7 +95,7 @@ namespace Azure.ResourceManager.HardwareSecurityModules
                 writer.WriteStartArray();
                 foreach (var item in Hsms)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<CloudHsmProperties>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -110,7 +110,7 @@ namespace Azure.ResourceManager.HardwareSecurityModules
                 writer.WriteStartArray();
                 foreach (var item in PrivateEndpointConnections)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<HardwareSecurityModulesPrivateEndpointConnectionData>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -122,12 +122,12 @@ namespace Azure.ResourceManager.HardwareSecurityModules
             if (Optional.IsDefined(RestoreProperties))
             {
                 writer.WritePropertyName("restoreProperties"u8);
-                writer.WriteObjectValue(RestoreProperties);
+                writer.WriteObjectValue<RestoreProperties>(RestoreProperties, options);
             }
             if (Optional.IsDefined(BackupProperties))
             {
                 writer.WritePropertyName("backupProperties"u8);
-                writer.WriteObjectValue(BackupProperties);
+                writer.WriteObjectValue<BackupProperties>(BackupProperties, options);
             }
             writer.WriteEndObject();
             if (options.Format != "W" && _serializedAdditionalRawData != null)
@@ -186,7 +186,7 @@ namespace Azure.ResourceManager.HardwareSecurityModules
             RestoreProperties restoreProperties = default;
             BackupProperties backupProperties = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("sku"u8))
@@ -344,10 +344,10 @@ namespace Azure.ResourceManager.HardwareSecurityModules
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new CloudHsmClusterData(
                 id,
                 name,

@@ -29,12 +29,12 @@ namespace Azure.ResourceManager.HybridContainerService.Models
             if (Optional.IsDefined(LinuxProfile))
             {
                 writer.WritePropertyName("linuxProfile"u8);
-                writer.WriteObjectValue(LinuxProfile);
+                writer.WriteObjectValue<LinuxProfileProperties>(LinuxProfile, options);
             }
             if (Optional.IsDefined(ControlPlane))
             {
                 writer.WritePropertyName("controlPlane"u8);
-                writer.WriteObjectValue(ControlPlane);
+                writer.WriteObjectValue<ProvisionedClusterControlPlaneProfile>(ControlPlane, options);
             }
             if (Optional.IsDefined(KubernetesVersion))
             {
@@ -44,17 +44,17 @@ namespace Azure.ResourceManager.HybridContainerService.Models
             if (Optional.IsDefined(NetworkProfile))
             {
                 writer.WritePropertyName("networkProfile"u8);
-                writer.WriteObjectValue(NetworkProfile);
+                writer.WriteObjectValue<ProvisionedClusterNetworkProfile>(NetworkProfile, options);
             }
             if (Optional.IsDefined(StorageProfile))
             {
                 writer.WritePropertyName("storageProfile"u8);
-                writer.WriteObjectValue(StorageProfile);
+                writer.WriteObjectValue<StorageProfile>(StorageProfile, options);
             }
             if (Optional.IsDefined(ClusterVmAccessProfile))
             {
                 writer.WritePropertyName("clusterVMAccessProfile"u8);
-                writer.WriteObjectValue(ClusterVmAccessProfile);
+                writer.WriteObjectValue<ClusterVmAccessProfile>(ClusterVmAccessProfile, options);
             }
             if (Optional.IsCollectionDefined(AgentPoolProfiles))
             {
@@ -62,14 +62,14 @@ namespace Azure.ResourceManager.HybridContainerService.Models
                 writer.WriteStartArray();
                 foreach (var item in AgentPoolProfiles)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<HybridContainerServiceNamedAgentPoolProfile>(item, options);
                 }
                 writer.WriteEndArray();
             }
             if (Optional.IsDefined(CloudProviderProfile))
             {
                 writer.WritePropertyName("cloudProviderProfile"u8);
-                writer.WriteObjectValue(CloudProviderProfile);
+                writer.WriteObjectValue<ProvisionedClusterCloudProviderProfile>(CloudProviderProfile, options);
             }
             if (options.Format != "W" && Optional.IsDefined(ProvisioningState))
             {
@@ -79,17 +79,17 @@ namespace Azure.ResourceManager.HybridContainerService.Models
             if (options.Format != "W" && Optional.IsDefined(Status))
             {
                 writer.WritePropertyName("status"u8);
-                writer.WriteObjectValue(Status);
+                writer.WriteObjectValue<ProvisionedClusterStatus>(Status, options);
             }
             if (Optional.IsDefined(LicenseProfile))
             {
                 writer.WritePropertyName("licenseProfile"u8);
-                writer.WriteObjectValue(LicenseProfile);
+                writer.WriteObjectValue<ProvisionedClusterLicenseProfile>(LicenseProfile, options);
             }
             if (Optional.IsDefined(AutoScalerProfile))
             {
                 writer.WritePropertyName("autoScalerProfile"u8);
-                writer.WriteObjectValue(AutoScalerProfile);
+                writer.WriteObjectValue<ProvisionedClusterPropertiesAutoScalerProfile>(AutoScalerProfile, options);
             }
             if (options.Format != "W" && _serializedAdditionalRawData != null)
             {
@@ -142,7 +142,7 @@ namespace Azure.ResourceManager.HybridContainerService.Models
             ProvisionedClusterLicenseProfile licenseProfile = default;
             ProvisionedClusterPropertiesAutoScalerProfile autoScalerProfile = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("linuxProfile"u8))
@@ -256,10 +256,10 @@ namespace Azure.ResourceManager.HybridContainerService.Models
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new ProvisionedClusterProperties(
                 linuxProfile,
                 controlPlane,

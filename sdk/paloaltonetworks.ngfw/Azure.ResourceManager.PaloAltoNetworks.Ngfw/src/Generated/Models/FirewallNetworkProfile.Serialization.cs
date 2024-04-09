@@ -29,12 +29,12 @@ namespace Azure.ResourceManager.PaloAltoNetworks.Ngfw.Models
             if (Optional.IsDefined(VnetConfiguration))
             {
                 writer.WritePropertyName("vnetConfiguration"u8);
-                writer.WriteObjectValue(VnetConfiguration);
+                writer.WriteObjectValue<FirewallVnetConfiguration>(VnetConfiguration, options);
             }
             if (Optional.IsDefined(VwanConfiguration))
             {
                 writer.WritePropertyName("vwanConfiguration"u8);
-                writer.WriteObjectValue(VwanConfiguration);
+                writer.WriteObjectValue<FirewallVwanConfiguration>(VwanConfiguration, options);
             }
             writer.WritePropertyName("networkType"u8);
             writer.WriteStringValue(NetworkType.ToString());
@@ -42,7 +42,7 @@ namespace Azure.ResourceManager.PaloAltoNetworks.Ngfw.Models
             writer.WriteStartArray();
             foreach (var item in PublicIPs)
             {
-                writer.WriteObjectValue(item);
+                writer.WriteObjectValue<IPAddressInfo>(item, options);
             }
             writer.WriteEndArray();
             writer.WritePropertyName("enableEgressNat"u8);
@@ -53,7 +53,7 @@ namespace Azure.ResourceManager.PaloAltoNetworks.Ngfw.Models
                 writer.WriteStartArray();
                 foreach (var item in EgressNatIP)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<IPAddressInfo>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -113,7 +113,7 @@ namespace Azure.ResourceManager.PaloAltoNetworks.Ngfw.Models
             IList<IPAddressInfo> egressNatIP = default;
             IList<string> trustedRanges = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("vnetConfiguration"u8))
@@ -184,10 +184,10 @@ namespace Azure.ResourceManager.PaloAltoNetworks.Ngfw.Models
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new FirewallNetworkProfile(
                 vnetConfiguration,
                 vwanConfiguration,

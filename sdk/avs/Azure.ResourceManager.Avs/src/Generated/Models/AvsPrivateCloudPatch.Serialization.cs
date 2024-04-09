@@ -48,7 +48,7 @@ namespace Azure.ResourceManager.Avs.Models
             if (Optional.IsDefined(ManagementCluster))
             {
                 writer.WritePropertyName("managementCluster"u8);
-                writer.WriteObjectValue(ManagementCluster);
+                writer.WriteObjectValue<AvsManagementCluster>(ManagementCluster, options);
             }
             if (Optional.IsDefined(Internet))
             {
@@ -61,19 +61,19 @@ namespace Azure.ResourceManager.Avs.Models
                 writer.WriteStartArray();
                 foreach (var item in IdentitySources)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<SingleSignOnIdentitySource>(item, options);
                 }
                 writer.WriteEndArray();
             }
             if (Optional.IsDefined(Availability))
             {
                 writer.WritePropertyName("availability"u8);
-                writer.WriteObjectValue(Availability);
+                writer.WriteObjectValue<PrivateCloudAvailabilityProperties>(Availability, options);
             }
             if (Optional.IsDefined(Encryption))
             {
                 writer.WritePropertyName("encryption"u8);
-                writer.WriteObjectValue(Encryption);
+                writer.WriteObjectValue<CustomerManagedEncryption>(Encryption, options);
             }
             if (Optional.IsCollectionDefined(ExtendedNetworkBlocks))
             {
@@ -133,7 +133,7 @@ namespace Azure.ResourceManager.Avs.Models
             CustomerManagedEncryption encryption = default;
             IList<string> extendedNetworkBlocks = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("tags"u8))
@@ -237,10 +237,10 @@ namespace Azure.ResourceManager.Avs.Models
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new AvsPrivateCloudPatch(
                 tags ?? new ChangeTrackingDictionary<string, string>(),
                 identity,

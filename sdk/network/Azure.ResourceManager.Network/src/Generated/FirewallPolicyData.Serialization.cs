@@ -125,47 +125,47 @@ namespace Azure.ResourceManager.Network
             if (Optional.IsDefined(ThreatIntelWhitelist))
             {
                 writer.WritePropertyName("threatIntelWhitelist"u8);
-                writer.WriteObjectValue(ThreatIntelWhitelist);
+                writer.WriteObjectValue<FirewallPolicyThreatIntelWhitelist>(ThreatIntelWhitelist, options);
             }
             if (Optional.IsDefined(Insights))
             {
                 writer.WritePropertyName("insights"u8);
-                writer.WriteObjectValue(Insights);
+                writer.WriteObjectValue<FirewallPolicyInsights>(Insights, options);
             }
             if (Optional.IsDefined(Snat))
             {
                 writer.WritePropertyName("snat"u8);
-                writer.WriteObjectValue(Snat);
+                writer.WriteObjectValue<FirewallPolicySnat>(Snat, options);
             }
             if (Optional.IsDefined(Sql))
             {
                 writer.WritePropertyName("sql"u8);
-                writer.WriteObjectValue(Sql);
+                writer.WriteObjectValue<FirewallPolicySQL>(Sql, options);
             }
             if (Optional.IsDefined(DnsSettings))
             {
                 writer.WritePropertyName("dnsSettings"u8);
-                writer.WriteObjectValue(DnsSettings);
+                writer.WriteObjectValue<DnsSettings>(DnsSettings, options);
             }
             if (Optional.IsDefined(ExplicitProxy))
             {
                 writer.WritePropertyName("explicitProxy"u8);
-                writer.WriteObjectValue(ExplicitProxy);
+                writer.WriteObjectValue<FirewallPolicyExplicitProxy>(ExplicitProxy, options);
             }
             if (Optional.IsDefined(IntrusionDetection))
             {
                 writer.WritePropertyName("intrusionDetection"u8);
-                writer.WriteObjectValue(IntrusionDetection);
+                writer.WriteObjectValue<FirewallPolicyIntrusionDetection>(IntrusionDetection, options);
             }
             if (Optional.IsDefined(TransportSecurity))
             {
                 writer.WritePropertyName("transportSecurity"u8);
-                writer.WriteObjectValue(TransportSecurity);
+                writer.WriteObjectValue<FirewallPolicyTransportSecurity>(TransportSecurity, options);
             }
             if (Optional.IsDefined(Sku))
             {
                 writer.WritePropertyName("sku"u8);
-                writer.WriteObjectValue(Sku);
+                writer.WriteObjectValue<FirewallPolicySku>(Sku, options);
             }
             writer.WriteEndObject();
             if (options.Format != "W" && _serializedAdditionalRawData != null)
@@ -230,7 +230,7 @@ namespace Azure.ResourceManager.Network
             FirewallPolicyTransportSecurity transportSecurity = default;
             FirewallPolicySku sku = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("etag"u8))
@@ -466,10 +466,10 @@ namespace Azure.ResourceManager.Network
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new FirewallPolicyData(
                 id,
                 name,

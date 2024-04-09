@@ -31,12 +31,12 @@ namespace Azure.Health.Insights.RadiologyInsights
             if (Optional.IsDefined(ValueQuantity))
             {
                 writer.WritePropertyName("valueQuantity"u8);
-                writer.WriteObjectValue(ValueQuantity);
+                writer.WriteObjectValue<FhirR4Quantity>(ValueQuantity, options);
             }
             if (Optional.IsDefined(ValueCodeableConcept))
             {
                 writer.WritePropertyName("valueCodeableConcept"u8);
-                writer.WriteObjectValue(ValueCodeableConcept);
+                writer.WriteObjectValue<FhirR4CodeableConcept>(ValueCodeableConcept, options);
             }
             if (Optional.IsDefined(ValueString))
             {
@@ -56,17 +56,17 @@ namespace Azure.Health.Insights.RadiologyInsights
             if (Optional.IsDefined(ValueRange))
             {
                 writer.WritePropertyName("valueRange"u8);
-                writer.WriteObjectValue(ValueRange);
+                writer.WriteObjectValue<FhirR4Range>(ValueRange, options);
             }
             if (Optional.IsDefined(ValueRatio))
             {
                 writer.WritePropertyName("valueRatio"u8);
-                writer.WriteObjectValue(ValueRatio);
+                writer.WriteObjectValue<FhirR4Ratio>(ValueRatio, options);
             }
             if (Optional.IsDefined(ValueSampledData))
             {
                 writer.WritePropertyName("valueSampledData"u8);
-                writer.WriteObjectValue(ValueSampledData);
+                writer.WriteObjectValue<FhirR4SampledData>(ValueSampledData, options);
             }
             if (Optional.IsDefined(ValueTime))
             {
@@ -81,12 +81,12 @@ namespace Azure.Health.Insights.RadiologyInsights
             if (Optional.IsDefined(ValuePeriod))
             {
                 writer.WritePropertyName("valuePeriod"u8);
-                writer.WriteObjectValue(ValuePeriod);
+                writer.WriteObjectValue<FhirR4Period>(ValuePeriod, options);
             }
             if (Optional.IsDefined(ValueReference))
             {
                 writer.WritePropertyName("valueReference"u8);
-                writer.WriteObjectValue(ValueReference);
+                writer.WriteObjectValue<FhirR4Reference>(ValueReference, options);
             }
             if (Optional.IsDefined(Id))
             {
@@ -99,7 +99,7 @@ namespace Azure.Health.Insights.RadiologyInsights
                 writer.WriteStartArray();
                 foreach (var item in Extension)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<FhirR4Extension>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -157,7 +157,7 @@ namespace Azure.Health.Insights.RadiologyInsights
             string id = default;
             IReadOnlyList<FhirR4Extension> extension = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("url"u8))
@@ -286,10 +286,10 @@ namespace Azure.Health.Insights.RadiologyInsights
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new FhirR4Extension(
                 id,
                 extension ?? new ChangeTrackingList<FhirR4Extension>(),
@@ -352,7 +352,7 @@ namespace Azure.Health.Insights.RadiologyInsights
         internal override RequestContent ToRequestContent()
         {
             var content = new Utf8JsonRequestContent();
-            content.JsonWriter.WriteObjectValue(this);
+            content.JsonWriter.WriteObjectValue<FhirR4Extension>(this, new ModelReaderWriterOptions("W"));
             return content;
         }
     }

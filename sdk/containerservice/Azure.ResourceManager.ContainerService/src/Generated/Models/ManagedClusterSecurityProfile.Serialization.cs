@@ -29,22 +29,22 @@ namespace Azure.ResourceManager.ContainerService.Models
             if (Optional.IsDefined(Defender))
             {
                 writer.WritePropertyName("defender"u8);
-                writer.WriteObjectValue(Defender);
+                writer.WriteObjectValue<ManagedClusterSecurityProfileDefender>(Defender, options);
             }
             if (Optional.IsDefined(AzureKeyVaultKms))
             {
                 writer.WritePropertyName("azureKeyVaultKms"u8);
-                writer.WriteObjectValue(AzureKeyVaultKms);
+                writer.WriteObjectValue<ManagedClusterSecurityProfileKeyVaultKms>(AzureKeyVaultKms, options);
             }
             if (Optional.IsDefined(WorkloadIdentity))
             {
                 writer.WritePropertyName("workloadIdentity"u8);
-                writer.WriteObjectValue(WorkloadIdentity);
+                writer.WriteObjectValue<ManagedClusterSecurityProfileWorkloadIdentity>(WorkloadIdentity, options);
             }
             if (Optional.IsDefined(ImageCleaner))
             {
                 writer.WritePropertyName("imageCleaner"u8);
-                writer.WriteObjectValue(ImageCleaner);
+                writer.WriteObjectValue<ManagedClusterSecurityProfileImageCleaner>(ImageCleaner, options);
             }
             if (options.Format != "W" && _serializedAdditionalRawData != null)
             {
@@ -89,7 +89,7 @@ namespace Azure.ResourceManager.ContainerService.Models
             ManagedClusterSecurityProfileWorkloadIdentity workloadIdentity = default;
             ManagedClusterSecurityProfileImageCleaner imageCleaner = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("defender"u8))
@@ -130,10 +130,10 @@ namespace Azure.ResourceManager.ContainerService.Models
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new ManagedClusterSecurityProfile(defender, azureKeyVaultKms, workloadIdentity, imageCleaner, serializedAdditionalRawData);
         }
 

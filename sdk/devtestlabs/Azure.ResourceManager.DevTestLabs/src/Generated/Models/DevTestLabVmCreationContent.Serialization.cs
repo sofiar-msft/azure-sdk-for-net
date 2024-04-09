@@ -52,7 +52,7 @@ namespace Azure.ResourceManager.DevTestLabs.Models
             if (Optional.IsDefined(BulkCreationParameters))
             {
                 writer.WritePropertyName("bulkCreationParameters"u8);
-                writer.WriteObjectValue(BulkCreationParameters);
+                writer.WriteObjectValue<BulkCreationParameters>(BulkCreationParameters, options);
             }
             if (Optional.IsDefined(Notes))
             {
@@ -125,14 +125,14 @@ namespace Azure.ResourceManager.DevTestLabs.Models
                 writer.WriteStartArray();
                 foreach (var item in Artifacts)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<DevTestLabArtifactInstallInfo>(item, options);
                 }
                 writer.WriteEndArray();
             }
             if (Optional.IsDefined(GalleryImageReference))
             {
                 writer.WritePropertyName("galleryImageReference"u8);
-                writer.WriteObjectValue(GalleryImageReference);
+                writer.WriteObjectValue<DevTestLabGalleryImageReference>(GalleryImageReference, options);
             }
             if (Optional.IsDefined(PlanId))
             {
@@ -142,7 +142,7 @@ namespace Azure.ResourceManager.DevTestLabs.Models
             if (Optional.IsDefined(NetworkInterface))
             {
                 writer.WritePropertyName("networkInterface"u8);
-                writer.WriteObjectValue(NetworkInterface);
+                writer.WriteObjectValue<DevTestLabNetworkInterface>(NetworkInterface, options);
             }
             if (Optional.IsDefined(ExpireOn))
             {
@@ -170,7 +170,7 @@ namespace Azure.ResourceManager.DevTestLabs.Models
                 writer.WriteStartArray();
                 foreach (var item in DataDiskParameters)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<DevTestLabDataDiskProperties>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -180,7 +180,7 @@ namespace Azure.ResourceManager.DevTestLabs.Models
                 writer.WriteStartArray();
                 foreach (var item in ScheduleParameters)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<DevTestLabScheduleCreationParameter>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -251,7 +251,7 @@ namespace Azure.ResourceManager.DevTestLabs.Models
             IList<DevTestLabDataDiskProperties> dataDiskParameters = default;
             IList<DevTestLabScheduleCreationParameter> scheduleParameters = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("name"u8))
@@ -479,10 +479,10 @@ namespace Azure.ResourceManager.DevTestLabs.Models
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new DevTestLabVmCreationContent(
                 name,
                 location,

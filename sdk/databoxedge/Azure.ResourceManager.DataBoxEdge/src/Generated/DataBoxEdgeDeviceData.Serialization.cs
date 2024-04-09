@@ -31,7 +31,7 @@ namespace Azure.ResourceManager.DataBoxEdge
             if (Optional.IsDefined(Sku))
             {
                 writer.WritePropertyName("sku"u8);
-                writer.WriteObjectValue(Sku);
+                writer.WriteObjectValue<DataBoxEdgeSku>(Sku, options);
             }
             if (Optional.IsDefined(ETag))
             {
@@ -161,17 +161,17 @@ namespace Azure.ResourceManager.DataBoxEdge
             if (options.Format != "W" && Optional.IsDefined(ResourceMoveDetails))
             {
                 writer.WritePropertyName("resourceMoveDetails"u8);
-                writer.WriteObjectValue(ResourceMoveDetails);
+                writer.WriteObjectValue<DataBoxEdgeResourceMoveDetails>(ResourceMoveDetails, options);
             }
             if (options.Format != "W" && Optional.IsDefined(EdgeProfile))
             {
                 writer.WritePropertyName("edgeProfile"u8);
-                writer.WriteObjectValue(EdgeProfile);
+                writer.WriteObjectValue<EdgeProfile>(EdgeProfile, options);
             }
             if (Optional.IsDefined(DataResidency))
             {
                 writer.WritePropertyName("dataResidency"u8);
-                writer.WriteObjectValue(DataResidency);
+                writer.WriteObjectValue<DataResidency>(DataResidency, options);
             }
             writer.WriteEndObject();
             if (options.Format != "W" && _serializedAdditionalRawData != null)
@@ -240,7 +240,7 @@ namespace Azure.ResourceManager.DataBoxEdge
             EdgeProfile edgeProfile = default;
             DataResidency dataResidency = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("sku"u8))
@@ -458,10 +458,10 @@ namespace Azure.ResourceManager.DataBoxEdge
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new DataBoxEdgeDeviceData(
                 id,
                 name,

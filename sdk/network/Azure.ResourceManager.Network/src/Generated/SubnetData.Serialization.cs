@@ -68,12 +68,12 @@ namespace Azure.ResourceManager.Network
             if (Optional.IsDefined(NetworkSecurityGroup))
             {
                 writer.WritePropertyName("networkSecurityGroup"u8);
-                writer.WriteObjectValue(NetworkSecurityGroup);
+                writer.WriteObjectValue<NetworkSecurityGroupData>(NetworkSecurityGroup, options);
             }
             if (Optional.IsDefined(RouteTable))
             {
                 writer.WritePropertyName("routeTable"u8);
-                writer.WriteObjectValue(RouteTable);
+                writer.WriteObjectValue<RouteTableData>(RouteTable, options);
             }
             if (Optional.IsDefined(NatGateway))
             {
@@ -86,7 +86,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in ServiceEndpoints)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<ServiceEndpointProperties>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -96,7 +96,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in ServiceEndpointPolicies)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<ServiceEndpointPolicyData>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -106,7 +106,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in PrivateEndpoints)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<PrivateEndpointData>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -116,7 +116,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in IPConfigurations)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<NetworkIPConfiguration>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -126,7 +126,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in IPConfigurationProfiles)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<NetworkIPConfigurationProfile>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -146,7 +146,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in ResourceNavigationLinks)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<ResourceNavigationLink>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -156,7 +156,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in ServiceAssociationLinks)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<ServiceAssociationLink>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -166,7 +166,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in Delegations)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<ServiceDelegation>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -196,7 +196,7 @@ namespace Azure.ResourceManager.Network
                 writer.WriteStartArray();
                 foreach (var item in ApplicationGatewayIPConfigurations)
                 {
-                    writer.WriteObjectValue(item);
+                    writer.WriteObjectValue<ApplicationGatewayIPConfiguration>(item, options);
                 }
                 writer.WriteEndArray();
             }
@@ -269,7 +269,7 @@ namespace Azure.ResourceManager.Network
             IList<ApplicationGatewayIPConfiguration> applicationGatewayIPConfigurations = default;
             bool? defaultOutboundAccess = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("etag"u8))
@@ -545,10 +545,10 @@ namespace Azure.ResourceManager.Network
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new SubnetData(
                 id,
                 name,

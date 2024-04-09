@@ -93,5 +93,13 @@ namespace Azure.Communication.PhoneNumbers
             }
             return new PurchasedPhoneNumber(id, phoneNumber, countryCode, phoneNumberType, capabilities, assignmentType, purchaseDate, cost, operatorId.Value, operatorName.Value, Optional.ToNullable(phoneNumberSource));
         }
+
+        /// <summary> Deserializes the model from a raw response. </summary>
+        /// <param name="response"> The response to deserialize the model from. </param>
+        internal static PurchasedPhoneNumber FromResponse(Response response)
+        {
+            using var document = JsonDocument.Parse(response.Content);
+            return DeserializePurchasedPhoneNumber(document.RootElement);
+        }
     }
 }

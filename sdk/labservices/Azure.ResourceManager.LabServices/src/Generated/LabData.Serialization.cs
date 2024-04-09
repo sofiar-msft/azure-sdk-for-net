@@ -66,27 +66,27 @@ namespace Azure.ResourceManager.LabServices
             if (Optional.IsDefined(AutoShutdownProfile))
             {
                 writer.WritePropertyName("autoShutdownProfile"u8);
-                writer.WriteObjectValue(AutoShutdownProfile);
+                writer.WriteObjectValue<LabAutoShutdownProfile>(AutoShutdownProfile, options);
             }
             if (Optional.IsDefined(ConnectionProfile))
             {
                 writer.WritePropertyName("connectionProfile"u8);
-                writer.WriteObjectValue(ConnectionProfile);
+                writer.WriteObjectValue<LabConnectionProfile>(ConnectionProfile, options);
             }
             if (Optional.IsDefined(VirtualMachineProfile))
             {
                 writer.WritePropertyName("virtualMachineProfile"u8);
-                writer.WriteObjectValue(VirtualMachineProfile);
+                writer.WriteObjectValue<LabVirtualMachineProfile>(VirtualMachineProfile, options);
             }
             if (Optional.IsDefined(SecurityProfile))
             {
                 writer.WritePropertyName("securityProfile"u8);
-                writer.WriteObjectValue(SecurityProfile);
+                writer.WriteObjectValue<LabSecurityProfile>(SecurityProfile, options);
             }
             if (Optional.IsDefined(RosterProfile))
             {
                 writer.WritePropertyName("rosterProfile"u8);
-                writer.WriteObjectValue(RosterProfile);
+                writer.WriteObjectValue<LabRosterProfile>(RosterProfile, options);
             }
             if (Optional.IsDefined(LabPlanId))
             {
@@ -111,7 +111,7 @@ namespace Azure.ResourceManager.LabServices
             if (Optional.IsDefined(NetworkProfile))
             {
                 writer.WritePropertyName("networkProfile"u8);
-                writer.WriteObjectValue(NetworkProfile);
+                writer.WriteObjectValue<LabNetworkProfile>(NetworkProfile, options);
             }
             if (options.Format != "W" && Optional.IsDefined(State))
             {
@@ -175,7 +175,7 @@ namespace Azure.ResourceManager.LabServices
             LabNetworkProfile networkProfile = default;
             LabState? state = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("tags"u8))
@@ -326,10 +326,10 @@ namespace Azure.ResourceManager.LabServices
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new LabData(
                 id,
                 name,

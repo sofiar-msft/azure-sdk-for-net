@@ -41,7 +41,7 @@ namespace Azure.ResourceManager.Resources.Models
             if (Optional.IsDefined(TemplateLink))
             {
                 writer.WritePropertyName("templateLink"u8);
-                writer.WriteObjectValue(TemplateLink);
+                writer.WriteObjectValue<ArmDeploymentTemplateLink>(TemplateLink, options);
             }
             if (Optional.IsDefined(Parameters))
             {
@@ -58,24 +58,24 @@ namespace Azure.ResourceManager.Resources.Models
             if (Optional.IsDefined(ParametersLink))
             {
                 writer.WritePropertyName("parametersLink"u8);
-                writer.WriteObjectValue(ParametersLink);
+                writer.WriteObjectValue<ArmDeploymentParametersLink>(ParametersLink, options);
             }
             writer.WritePropertyName("mode"u8);
             writer.WriteStringValue(Mode.ToSerialString());
             if (Optional.IsDefined(DebugSetting))
             {
                 writer.WritePropertyName("debugSetting"u8);
-                writer.WriteObjectValue(DebugSetting);
+                writer.WriteObjectValue<DebugSetting>(DebugSetting, options);
             }
             if (Optional.IsDefined(ErrorDeployment))
             {
                 writer.WritePropertyName("onErrorDeployment"u8);
-                writer.WriteObjectValue(ErrorDeployment);
+                writer.WriteObjectValue<ErrorDeployment>(ErrorDeployment, options);
             }
             if (Optional.IsDefined(ExpressionEvaluation))
             {
                 writer.WritePropertyName("expressionEvaluationOptions"u8);
-                writer.WriteObjectValue(ExpressionEvaluation);
+                writer.WriteObjectValue<ExpressionEvaluationOptions>(ExpressionEvaluation, options);
             }
             if (options.Format != "W" && _serializedAdditionalRawData != null)
             {
@@ -124,7 +124,7 @@ namespace Azure.ResourceManager.Resources.Models
             ErrorDeployment onErrorDeployment = default;
             ExpressionEvaluationOptions expressionEvaluationOptions = default;
             IDictionary<string, BinaryData> serializedAdditionalRawData = default;
-            Dictionary<string, BinaryData> additionalPropertiesDictionary = new Dictionary<string, BinaryData>();
+            Dictionary<string, BinaryData> rawDataDictionary = new Dictionary<string, BinaryData>();
             foreach (var property in element.EnumerateObject())
             {
                 if (property.NameEquals("template"u8))
@@ -197,10 +197,10 @@ namespace Azure.ResourceManager.Resources.Models
                 }
                 if (options.Format != "W")
                 {
-                    additionalPropertiesDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
+                    rawDataDictionary.Add(property.Name, BinaryData.FromString(property.Value.GetRawText()));
                 }
             }
-            serializedAdditionalRawData = additionalPropertiesDictionary;
+            serializedAdditionalRawData = rawDataDictionary;
             return new ArmDeploymentProperties(
                 template,
                 templateLink,

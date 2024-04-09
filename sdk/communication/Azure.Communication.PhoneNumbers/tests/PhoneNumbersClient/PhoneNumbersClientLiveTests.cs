@@ -695,7 +695,6 @@ namespace Azure.Communication.PhoneNumbers.Tests
 
         [Test]
         [AsyncOnly]
-        [Ignore("Test is failing in playback mode due to an issue with LRO not completing")]
         public async Task UpdateCapabilitiesAsync()
         {
             if (TestEnvironment.ShouldIgnorePhoneNumbersTests || SkipUpdateCapabilitiesLiveTest)
@@ -720,7 +719,6 @@ namespace Azure.Communication.PhoneNumbers.Tests
 
         [Test]
         [SyncOnly]
-        [Ignore("Test is failing in playback mode due to an issue with LRO not completing")]
         public void UpdateCapabilities()
         {
             if (TestEnvironment.ShouldIgnorePhoneNumbersTests || SkipUpdateCapabilitiesLiveTest)
@@ -812,7 +810,6 @@ namespace Azure.Communication.PhoneNumbers.Tests
 
         [Test]
         [AsyncOnly]
-        [Ignore("Test is failing in playback mode due to an infinite loop")]
         public async Task GetTollFreeAreaCodesAsyncAsPages()
         {
             var client = CreateClient();
@@ -849,7 +846,6 @@ namespace Azure.Communication.PhoneNumbers.Tests
 
         [Test]
         [SyncOnly]
-        [Ignore("Test is failing in playback mode due to an infinite loop")]
         public void GetTollFreeAreaCodesAsPages()
         {
             var client = CreateClient();
@@ -923,7 +919,6 @@ namespace Azure.Communication.PhoneNumbers.Tests
 
         [Test]
         [AsyncOnly]
-        [Ignore("Test is failing in playback mode due to an infinite loop")]
         public async Task GetGeographicAreaCodesAsyncAsPages()
         {
             var client = CreateClient();
@@ -961,7 +956,6 @@ namespace Azure.Communication.PhoneNumbers.Tests
 
         [Test]
         [SyncOnly]
-        [Ignore("Test is failing in playback mode due to an infinite loop")]
         public void GetGeographicAreaCodesAsPages()
         {
             var client = CreateClient();
